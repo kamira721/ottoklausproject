@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # pruebaotto
 
 ## Project setup
@@ -32,3 +33,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# ottoklausproject
+primera parte fiberase
+>>>>>>> ea5704c869f04897b655b45ed19a64b12d02eebe
