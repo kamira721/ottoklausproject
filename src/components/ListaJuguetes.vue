@@ -13,14 +13,14 @@
             </tr>
         </thead>
         <tbody v-for="(item, index) in traerJuego" :key="index">
-            <tr>
+            <tr class="bg-light">
             <th>{{item.codigo}}</th>
             <td>{{item.nombre}}</td>
             <td>{{item.stock}}</td>
             <td>${{item.precio}}</td>
             <td>
                 <b-button pill variant="primary" size="lg" class="mx-5 text-white" @click.prevent="editJuguete(item.id)">Editar</b-button>
-                <b-button pill variant="warning" size="lg" class="mx-2 text-white" @click.prevent="eliJuguete(item.id)">Eliminar</b-button>
+                <b-button pill variant="danger" size="lg" class="mx-2 text-white" @click.prevent="eliJuguete(item.id)">Eliminar</b-button>
             </td>
             </tr>
         </tbody>
@@ -44,7 +44,7 @@
                 this.$router.push('/agregar')
             },
             eliJuguete(id){
-                this.$confirm('¿Seguro que deseas elimiar este producto?', {
+                this.$confirm('¿Seguro que deseas eliminar este producto?', {
                 confirmButtonText: 'Si',
                 cancelButtonText: 'Cancelar',
                 type: 'warning',
@@ -71,3 +71,6 @@
         
     }
 </script>
+<style scoped>
+
+</style>

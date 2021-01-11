@@ -55,24 +55,23 @@ export default {
   margin-top: 100px;
   font-size:25px;
   text-shadow: 0.2em 0.1em 0.1em black;
-  color: rgb(22, 255, 72);
+  color: rgb(255, 255, 255);
 }
 form{
 display:flex;
 flex-direction:column;
 font-family: 'Chelsea Market', cursive;
 height:500px;
-background-image: url('../assets/legofondo.jpg');
+background-image: url('../assets/legofondoazul.jpg');
 background-color:white;
 background-size:100px;
 background-position:bottom;
-border:5px solid rgb(252, 5, 5);
+border:5px solid rgb(170, 12, 1);
 width:500px;
 margin-left:auto;
 margin-right:auto;
 margin-top:80px;
 border-radius:50%;
-opacity: 0.9;
 background-repeat:no-repeat;
   background-size: cover;
 
@@ -86,7 +85,7 @@ h1{
 }
 h2 {
     font-size:80px;
-    color:rgb(235, 188, 0);
+    color:rgb(255, 255, 255);
     text-shadow: 0.2em 0.1em 0.1em rgb(0, 0, 0);
 }
 button {

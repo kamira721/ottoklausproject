@@ -65,12 +65,13 @@ import firebase from 'firebase';
 
 export default {
     name: "AgregarJuguete",
+    props: ['id'],
     data() {
         return {
             codigo: '',
             nombre: '',
-            precio: 0,
-            stock: 0,
+            precio: '',
+            stock: '',
         }
     },
     methods: {
@@ -81,7 +82,7 @@ export default {
                 type: 'warning',
                 center: true
             }).then(() => {
-                firebase.firestore().collection('tablaJuguetes').add({
+                firebase.firestore().collection('toys').add({
                     codigo: this.codigo,
                     nombre: this.nombre,
                     precio: this.precio,

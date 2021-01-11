@@ -64,22 +64,28 @@
 </template>
 
 <script>
+
+import {mapGetters} from 'vuex';
+
 export default {
-    name: "AgregarJuguete",
+    name: "Editar",
+    props: ['id'],
+    ...mapGetters(['enviarJuegos']),
+
     data() {
         return {
             Juguetes: {
                 codigo: '',
                 nombre: '',
-                stock: 0,
-                precio: 0,
+                stock: '',
+                precio: '',
             }
         }
     },
-    created() {
+    mounted() {
         let Juguetes = {};
         Juguetes = this.$store.getters.enviarJuegos.find(resp => resp.id === this.$route.params.id)
-        if (Juguetes){
+        if (Juguetes !== undefined){
             this.Juguetes.codigo = Juguetes.codigo;
             this.Juguetes.nombre = Juguetes.nombre;
             this.Juguetes.stock = Juguetes.stock;
@@ -89,7 +95,7 @@ export default {
             this.$message('');
             setTimeout(()=>{
                 this.$router.push('/inventario');
-            },10);
+            },1000);
         }
     },
     methods: {
