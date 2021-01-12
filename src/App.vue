@@ -2,6 +2,7 @@
    <div id="app">
     <NavBar />
     <router-view/>
+ 
   </div>
 </template>
 <script>
@@ -26,41 +27,28 @@ import firebase from 'firebase'
         this.$store.dispatch('agregarUser', '')
       }
     });
+    this.$store.dispatch('traerDatos');
   },
 };
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
 body{
-    background-image: url('./assets/fondo6.jpg');
-    background-size:100%;
     background-repeat:no-repeat;
-    background-position: 20% 75%;
     background-attachment: fixed;
     background-position: center; 
     background-size: cover;
-    width:100%;
+    width:100%; 
+    background-image: url("../src/assets/toys-smile.jpg");
     opacity: 0.9;
 }
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-   
+    text-align: center;   
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

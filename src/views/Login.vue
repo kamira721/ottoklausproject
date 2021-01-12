@@ -2,22 +2,23 @@
    <div>
    <form>
    <div class="container">
-   <h2>Login</h2>
-   <label>Usuario</label>
+   <h2 class="titulo">Login</h2>
+   <label> Usuario </label>
    <input type="text" placeholder="user7@user.cl" v-model="user"><br>
-   <label>Contraseña</label>
+   <label> Contraseña </label>
    <input type="password" v-model="password"><br>
    <button @click.prevent='login'>Ingresar</button>
+   <img class="img2" src="../assets/ottoklauslogo.png" alt="logo">
    </div>
    </form>
-   <h1> Bienvenido a <span> Otto </span> Klauss</h1>
+   <h1> Bienvenido a <span> Otto  Klauss </span></h1>
    </div>
 </template>
 
 <script>
 import firebase from 'firebase'
 export default {
-    name: 'formulario',
+    name: 'Login',
 
     data() {
         return {
@@ -46,55 +47,57 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+
 .container{
-  position: relative;
-  width: 500px;
-  height: 500px;
-  overflow: hidden;
-  margin-top: 100px;
-  font-size:25px;
-  text-shadow: 0.2em 0.1em 0.1em black;
-  color: rgb(255, 255, 255);
+  position:relative;
+  width: 400px;
+  height: 400px;
+  margin-top: 40px;
+  font-size:20px; 
+  color: black;
 }
+
+.img2 {
+  display: flex;
+  width: 65%;
+  margin-left: 65px;
+     
+}
+
 form{
-display:flex;
-flex-direction:column;
 font-family: 'Chelsea Market', cursive;
-height:500px;
-background-image: url('../assets/legofondoazul.jpg');
-background-color:white;
-background-size:100px;
-background-position:bottom;
-border:5px solid rgb(170, 12, 1);
-width:500px;
+height:450px;
+background-color:rgb(243, 250, 148);
+width:450px;
 margin-left:auto;
 margin-right:auto;
-margin-top:80px;
-border-radius:50%;
-background-repeat:no-repeat;
-  background-size: cover;
+margin-top:230px;
+line-height: 30px;
+border-radius: 50%;
+border:8px solid #15afb5;
+
 
 }
 h1{
     margin-bottom:200px;
     font-family: 'Chelsea Market', cursive;
-    font-size:100px;
-    color:blue;
-    text-shadow: 0.2em 0.1em 0.2em black;
+    font-size:50px;
+    color:rgb(29, 29, 29);
+   
 }
-h2 {
-    font-size:80px;
-    color:rgb(255, 255, 255);
-    text-shadow: 0.2em 0.1em 0.1em rgb(0, 0, 0);
+.titulo {
+    font-size:50px;
+    color:rgb(5, 17, 6);
+
+  
 }
 button {
-    color:blue;
+    color:rgb(0, 60, 35);
     text-shadow: 0.2em 0.1em 0.3em black;
 }
 span {
-    color:#ff3f98;
-    font-size:140px;
+    color:#c44104;
+    font-size:50px;
 }
 
 </style>

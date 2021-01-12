@@ -1,17 +1,20 @@
 <template>
   <div>
-    <HelloWorld />
+      <ListaToys />
   </div>
 </template>
 
 <script>
-
-import HelloWorld from '@/components/HelloWorld.vue';
+import ListaToys from '@/components/ListaToys.vue';
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld,
-  }
+    name: 'Home',
+    components: {
+        ListaToys,
+    }
 }
 </script>
+
+<style scoped>
+
+</style>

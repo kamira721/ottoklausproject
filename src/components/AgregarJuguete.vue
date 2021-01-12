@@ -54,7 +54,7 @@
             ></b-form-input>
         </b-form-group>
 
-        <b-button type="submit" pill variant="primary" size="lg" class="mx-3" @click.prevent="agregar">Agregar</b-button>
+        <b-button type="submit" pill variant="info" size="lg" class="mx-3" @click.prevent="agregar">Agregar</b-button>
         <b-button pill variant="danger" size="lg" class="mx-3" @click="$router.push('/inventario')">Volver</b-button>
         </b-form>
     </div>
@@ -62,6 +62,8 @@
 
 <script>
 import firebase from 'firebase';
+import Swal from 'sweetalert2';
+
 
 export default {
     name: "AgregarJuguete",
@@ -76,23 +78,24 @@ export default {
     },
     methods: {
         agregar(){
-            this.$confirm('¿Estás seguro que deseas agregar el juguete seleccionado?', 'Cuidado', {
-                confirmButtonText: 'Si',
-                cancelButtonText: 'Cancel',
-                type: 'warning',
-                center: true
+            Swal.fire({
+                title: 'Estas seguro que deseas agregar este juguete?',
+                showCancelButton: true,
+                confirmButtonText: `Sí`,
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire('Juguete agregado con éxito!', '', 'success')
+                }     
             }).then(() => {
                 firebase.firestore().collection('toys').add({
                     codigo: this.codigo,
                     nombre: this.nombre,
                     precio: this.precio,
                     stock: this.stock,
+            
                 }),
-                this.$router.push('/lista');
-                this.$message({
-                    type: 'success',
-                    message: 'Juguete Agregado.'
-                });
+                this.$router.push('/inventario');
             }).catch(() => {
                 console.log('Se produjo un error al agregar el juguete.')
             });

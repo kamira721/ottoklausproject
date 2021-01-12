@@ -66,6 +66,7 @@
 <script>
 
 import {mapGetters} from 'vuex';
+import Swal from 'sweetalert2';
 
 export default {
     name: "Editar",
@@ -100,24 +101,24 @@ export default {
     },
     methods: {
         editando() {
-            this.$confirm("¿Está seguro que desea editar este juguete?","Cuidado", {
-                confirmButtonText: "Si",
-                cancelButtonText: "Cancelar",
-                type: "warning",
-                center: true,
-            }).then(() => {
-            this.$message({
-                type: "success",
-                message: "Juguete Editado.",
-            });
+           Swal.fire({
+                title: 'Estas seguro que deseas editar este juguete?',             
+                showCancelButton: true,
+                confirmButtonText: `Sí`,          
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire('Editado con éxito!', '', 'success')
+                } else if (result.isDenied) {
+                    Swal.fire('Decidiste no editar juguete', '', 'info')
+                }
+                });
             this.$store.dispatch("listaActual", this.Juguetes);
-            }).catch(() => {
-                console.log("Se produjo un error al editar el juguete");
-            });
-        }
-    },
+            }
+        },
+    }
     
-}
+
 </script>
 
 <style>

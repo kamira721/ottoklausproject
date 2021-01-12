@@ -52,7 +52,7 @@ export default new Vuex.Store({
         },
         deletJuguete(context, id) {
             db.collection('toys').doc(id).delete().then(() => {
-                console.log('Se elimino');
+
             }).catch(error => {
                 console.log(error);
             })

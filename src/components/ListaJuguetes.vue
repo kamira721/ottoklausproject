@@ -1,10 +1,10 @@
 <template>
 
     <div class="container my-4 text-center">
-        <b-button size="lg" class="mb-5 px-5 mx-5" pill variant="danger" @click.prevent="addJuguete">Agregar Juguetes</b-button>
+        <b-button size="lg" class="mb-5 px-5 mx-5" pill variant="primary" @click.prevent="addJuguete">Agregar Juguetes</b-button>
         <table class="table" >
         <thead>
-            <tr class="bg-success text-white">
+            <tr class="bg-secondary text-white">
             <th scope="col">Código</th>
             <th scope="col">Nombre Juguete</th>
             <th scope="col">Stock</th>
@@ -19,7 +19,7 @@
             <td>{{item.stock}}</td>
             <td>${{item.precio}}</td>
             <td>
-                <b-button pill variant="primary" size="lg" class="mx-5 text-white" @click.prevent="editJuguete(item.id)">Editar</b-button>
+                <b-button pill variant="info" size="lg" class="mx-5 text-white" @click.prevent="editJuguete(item.id)">Editar</b-button>
                 <b-button pill variant="danger" size="lg" class="mx-2 text-white" @click.prevent="eliJuguete(item.id)">Eliminar</b-button>
             </td>
             </tr>
@@ -29,7 +29,7 @@
 </template>
 
    <script>
-    //import Swal from 'sweetalert2'
+    import Swal from 'sweetalert2';
     export default {
         name: "ListaJuguetes",
         data() {
@@ -44,20 +44,17 @@
                 this.$router.push('/agregar')
             },
             eliJuguete(id){
-                this.$confirm('¿Seguro que deseas eliminar este producto?', {
-                confirmButtonText: 'Si',
-                cancelButtonText: 'Cancelar',
-                type: 'warning',
-                center: true
-                }).then(() => {
-                this.$message({
-                    type: 'success',
-                    message: 'Producto eliminado.'
+                Swal.fire({
+                title: 'Estas seguro que deseas eliminar este juguete?',
+                showCancelButton: true,
+                confirmButtonText: `Sí`,
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Juguete eliminado!', '', 'success')
+                } 
                 });
                 this.$store.dispatch('deletJuguete',id);
-                }).catch(() => {
-                console.log('Se produjo un error al eliminar este producto.')
-                });
+                
             }
         },
         mounted() {
